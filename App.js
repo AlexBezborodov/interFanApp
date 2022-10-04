@@ -1,8 +1,9 @@
-import { Application } from './components/app';
+import { Application } from "./src/components/app/app";
+
 
 export default function App() {
   return (
-   <Application />
+   <Application/>
   );
 }
 

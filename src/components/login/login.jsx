@@ -4,6 +4,7 @@ import { TextInput, Title, Button, Colors } from 'react-native-paper';
 import { useNavigate } from 'react-router-native';
 import { Box } from '../basic_components/box';
 import { useStyles } from "./styles";
+import { BasicInput } from "../inputs/basic_input";
 
 
 export const Login = () => {
@@ -17,7 +18,7 @@ export const Login = () => {
                 <Box borderRadius={12} p={8} backgroundColor="white" width="80%">
                     {LabelLogin()}
                     <Box py={8}>
-                        <TextInput mode='outlined' label="Email*"/>
+                        <BasicInput name="email" label="Email*"/>
                     </Box>
                     <Box py={8}>
                         <TextInput mode='outlined' label="Password*"/>
