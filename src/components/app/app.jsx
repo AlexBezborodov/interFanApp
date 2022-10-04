@@ -1,13 +1,13 @@
 import React from 'react';
 import { NativeRouter, Routes, Route } from 'react-router-native';
 import { Login } from '../login/login';
-import { Main } from '../main/main';
 import { Splashscrenn } from '../splashscreen';
 import {
   Provider as PaperProvider,
   DefaultTheme,
   Colors,
 } from "react-native-paper";
+import { BottomNavLayout } from '../bottom_navigation';
 
 export const Application = () => {
   const theme = {
@@ -16,7 +16,6 @@ export const Application = () => {
       ...DefaultTheme.colors,
       primary: Colors.blue500,
       background: Colors.white,
-      accent: "yellow",
       success: Colors.green500,
       activeChoice: Colors.blue50,
     },
@@ -27,7 +26,10 @@ export const Application = () => {
         <Routes>
           <Route path='/' element={<Splashscrenn />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/main' element={<Main />} />
+          <Route path='/news' element={<BottomNavLayout />} />
+          <Route path='/chat' element={<BottomNavLayout />} />
+          <Route path='/team' element={<BottomNavLayout />} />
+          <Route path='/profile' element={<BottomNavLayout />} />
         </Routes>
       </NativeRouter>
     </PaperProvider>
