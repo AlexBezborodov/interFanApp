@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageBackground } from 'react-native';
-import { TextInput, Title, Button, Colors } from 'react-native-paper';
+import { Title, Button, Colors } from 'react-native-paper';
 import { useNavigate } from 'react-router-native';
 import { Box } from '../basic_components/box';
 import { useStyles } from "./styles";
@@ -21,10 +21,10 @@ export const Login = () => {
                         <BasicInput name="email" label="Email*"/>
                     </Box>
                     <Box py={8}>
-                        <TextInput mode='outlined' label="Password*"/>
+                        <BasicInput label="Password*"/>
                     </Box>
                     <Box py={8}>
-                        <Button onPress={() => navigate('/main')}><Title>En</Title><Title style={{ color: Colors.blue600}}>ter</Title></Button>
+                        <Button onPress={() => navigate('/news')}><Title>En</Title><Title style={{ color: Colors.blue600}}>ter</Title></Button>
                     </Box>
                 </Box>
             </Box>
