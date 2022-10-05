@@ -7,6 +7,7 @@ import { Caption, TextInput } from "react-native-paper";
 
 import { useStyles } from "./styles";
 import { Box, Error } from "../../basic_components";
+import { checkErrors } from "../../../utils/utils";
 
 export const BasicInput = forwardRef(
   (
@@ -32,8 +33,8 @@ export const BasicInput = forwardRef(
       secureTextEntry || type === "password",
     );
     const [isFocused, setIsFocused] = useState(autoFocus);
-
-    //const error = checkErrors(errors, errorKey || name);
+  
+    const error = checkErrors(errors, errorKey || name);
     const inputKeyboardType =
       keyboardType || (name === "email" ? "email-address" : "default");
 
@@ -66,7 +67,7 @@ export const BasicInput = forwardRef(
         <TextInput
           ref={ref}
           name={name}
-         
+          error={Boolean(error)}
           style={styles.input}
           keyboardType={inputKeyboardType}
           secureTextEntry={secure}
