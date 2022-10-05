@@ -10,7 +10,9 @@ import { CurrentUserContext } from '../../providers/current_user_provider';
 
 
 export const Login = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const styles = useStyles();
+
     const image = `https://mfiles.alphacoders.com/973/973553.png`;
     const mockLoginData = { email: "abe@test.com", password: "q1w2e3r4" };
 
@@ -48,7 +50,15 @@ export const Login = () => {
           
             <Box backgroundColor="#rgba(2, 2, 3, 0.8)"  justifyContent="center" alignItems="center" borderRadius={10} height="100%" width="100%">
                 <Box borderRadius={12} p={8} backgroundColor="white" width="80%">
-                    {LabelLogin()}
+                
+                    <Box flexDirection="row" justifyContent="center" pt={8}>
+                        {["L", "O", "G", "I", "N"].map((item, key) => {
+                            const curStyle = key % 2 !== 0 ? styles.blueChar : styles.blackChar;
+                            return  <Title key={key} style={curStyle }>{item}</Title>;
+                        }  
+                        )}
+                    </Box>
+
                     <Box py={8}>
                         <BasicInput
                             name="email"
@@ -67,7 +77,13 @@ export const Login = () => {
                         />
                     </Box>
                     <Box py={8}>
-                        <Button onPress={login}><Title>En</Title><Title style={{ color: Colors.blue600}}>ter</Title></Button>
+                        <Button
+                            mode="outlined"
+                            style={{ borderColor: Colors.blue600 }}
+                            onPress={login}>
+                            <Title>En</Title>
+                            <Title style={{ color: Colors.blue600 }}>ter</Title>
+                        </Button>
                     </Box>
                 </Box>
             </Box>
@@ -75,20 +91,6 @@ export const Login = () => {
             
         </ImageBackground>
   )
-}
-
-const LabelLogin = () => {
-    const styles = useStyles();
-    return (
-        <Box flexDirection="row"  justifyContent="center">
-            <Title style={styles.blackChar}>L</Title>
-            <Title style={styles.blueChar}>O</Title>
-            <Title style={styles.blackChar}>G</Title>
-            <Title style={styles.blueChar}>I</Title>
-            <Title style={styles.blackChar}>N</Title>
-        </Box>
-    )
-    
 }
 
 function getMockUser() {
