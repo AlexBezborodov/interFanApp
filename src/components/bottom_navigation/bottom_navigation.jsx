@@ -57,8 +57,10 @@ function createRouteState(key) {
         return { refreshProfile: true };
       case "/chat":
             return { refreshChat: true };
-        case "/team":
-            return { refreshTeam: true };
+      case "/team":
+        return { refreshTeam: true };
+      case "/team":
+        return { refreshNews: true };
       default:
         return;
     }
