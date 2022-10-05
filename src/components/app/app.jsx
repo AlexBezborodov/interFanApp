@@ -9,6 +9,7 @@ import {
 } from "react-native-paper";
 import { BottomNavLayout } from '../bottom_navigation';
 import { CurrentUserProvider } from '../../providers/current_user_provider';
+import { NotFound } from '../not_found';
 
 export const Application = () => {
   const theme = {
@@ -32,6 +33,7 @@ export const Application = () => {
             <Route path='/chat' element={<BottomNavLayout />} />
             <Route path='/team' element={<BottomNavLayout />} />
             <Route path='/profile' element={<BottomNavLayout />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </NativeRouter>
       </CurrentUserProvider>
