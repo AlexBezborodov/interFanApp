@@ -8,6 +8,7 @@ import {
   Colors,
 } from "react-native-paper";
 import { BottomNavLayout } from '../bottom_navigation';
+import { CurrentUserProvider } from '../../providers/current_user_provider';
 
 export const Application = () => {
   const theme = {
@@ -22,17 +23,20 @@ export const Application = () => {
   };
   return (
     <PaperProvider theme={theme}>
-      <NativeRouter>
-        <Routes>
-          <Route path='/' element={<Splashscrenn />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/news' element={<BottomNavLayout />} />
-          <Route path='/chat' element={<BottomNavLayout />} />
-          <Route path='/team' element={<BottomNavLayout />} />
-          <Route path='/profile' element={<BottomNavLayout />} />
-        </Routes>
-      </NativeRouter>
+      <CurrentUserProvider>
+        <NativeRouter>
+          <Routes>
+            <Route path='/' element={<Splashscrenn />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/news' element={<BottomNavLayout />} />
+            <Route path='/chat' element={<BottomNavLayout />} />
+            <Route path='/team' element={<BottomNavLayout />} />
+            <Route path='/profile' element={<BottomNavLayout />} />
+          </Routes>
+        </NativeRouter>
+      </CurrentUserProvider>
     </PaperProvider>
+    
       
       
   )
