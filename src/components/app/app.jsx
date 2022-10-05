@@ -10,6 +10,7 @@ import {
 import { BottomNavLayout } from '../bottom_navigation';
 import { CurrentUserProvider } from '../../providers/current_user_provider';
 import { NotFound } from '../not_found';
+import { FullArticle } from '../news/full_article';
 
 export const Application = () => {
   const theme = {
@@ -30,6 +31,7 @@ export const Application = () => {
             <Route path='/' element={<Splashscrenn />} />
             <Route path='/login' element={<Login />} />
             <Route path='/news' element={<BottomNavLayout />} />
+            <Route path='/news/:id' element={< FullArticle />}/>
             <Route path='/chat' element={<BottomNavLayout />} />
             <Route path='/team' element={<BottomNavLayout />} />
             <Route path='/profile' element={<BottomNavLayout />} />
