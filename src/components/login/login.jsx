@@ -24,7 +24,7 @@ export const Login = () => {
     const fakeFetch = (data) => {
         const { email, password } = mockLoginData;
         if (email === data.email.toLowerCase() && password === data.password) {
-            return {status: 200, user: getMockUser()}
+            return {status: 200, user: getMockUser(), token: "23gm23h8sdj37hhsll99io8882hjsdkgtksDsjIjbwg53sF"}
         } else {
             return {status: 404, error: "Wrong email or password"}
         }
