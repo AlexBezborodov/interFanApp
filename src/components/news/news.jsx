@@ -5,16 +5,21 @@ import { Colors } from 'react-native-paper';
 import { ShortArticle } from './short_article';
 import { ScrollView } from 'react-native';
 import { EmptyNews } from './empty_news'
-import { useLocation, useMatch } from "react-router-native";
+import { useMatch } from "react-router-native";
+import { useRequestBuilder } from "../../hooks";
 
 export const News = () => {
-    const { pathname, state } = useLocation();
     const matchNews = useMatch("/news");
     const [news, setNews] = useState([]);
-    const fetchNews = () => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(response => response.json())
-        .then(json => setNews(json))
+
+    const [,fetchArticles] = useRequestBuilder("GET", "https://jsonplaceholder.typicode.com/posts");
+    const fetchNews = async() => {
+        const res = await fetchArticles();
+        if (res.status === 200) {
+            setNews(res.body);
+        } else {
+            Alert.alert("Something went wrong");
+        }
     }
 
     useEffect(() => {
