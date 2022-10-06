@@ -1,13 +1,13 @@
-import React, { createContext, useState } from "react";
+import React from "react";
 
 import { Snackbar } from "react-native-paper";
 
-export const SnackbarContext = createContext({
+export const SnackbarContext = React.createContext({
   notify: () => {},
 });
 
 export const SnackBarProvider = ({ children }) => {
-  const [props, setProps] = useState({
+  const [props, setProps] = React.useState({
     visible: false,
     variant: "success",
     message: "",

@@ -39,7 +39,6 @@ export function useRequestBuilder(requestType, url) {
       !!isMounted && setIsFetching(true);
       const res = await requestBuilder(requestType, url,
         { headers: {}, params });
-      console.log("RESPONSE in hook", res);
       !!isMounted && setIsFetching(false);
       if (res.status === 401) {
         navigate("/login");
